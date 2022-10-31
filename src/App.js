@@ -1,5 +1,5 @@
 import './App.css';
-import InputField from './components/InputField.component';
+import InputField from './components/input-field/InputField.component';
 
 function App() {
   return (
