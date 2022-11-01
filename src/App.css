@@ -9,13 +9,6 @@
   flex-direction: column;
   justify-content: center;
   font-size: 1.8rem;
-  background-image: url('../images/pattern-bg.png') ;
-  background-repeat: no-repeat;
-  background-size: cover;
-  color: white;
+
 }
 
-.header .inputfield {
-  margin-bottom: 20px auto;  
-  color: red;
-}

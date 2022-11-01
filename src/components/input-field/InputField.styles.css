@@ -1,0 +1,13 @@
+.inputfield-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: url('../../../images/pattern-bg.png') ;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+
+.input-area {
+  margin-bottom: 2rem;
+}
