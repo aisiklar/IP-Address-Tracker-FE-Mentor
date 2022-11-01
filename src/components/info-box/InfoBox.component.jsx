@@ -4,12 +4,12 @@ function InfoBox() {
 
   return(
     <div>
-      <IpAddressInfo></IpAddressInfo>
+{/*       <IpAddressInfo></IpAddressInfo>
       <LocationInfo></LocationInfo>
       <TimezoneInfo></TimezoneInfo>
-      <IspInfo></IspInfo>
+      <IspInfo></IspInfo> */}
     </div>
   ) 
 }
 
-export default InfoBox;
+//export default InfoBox;

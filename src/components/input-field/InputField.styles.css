@@ -10,4 +10,12 @@
 
 .input-area {
   margin-bottom: 2rem;
+
+}
+
+.input-field {
+  width: 300px;
+  height: 20px;
+  border-radius: 5px;
+  padding: 1rem;
 }
