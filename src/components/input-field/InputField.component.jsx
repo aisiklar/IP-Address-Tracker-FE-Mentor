@@ -1,5 +1,7 @@
-import { Component } from 'react';
+import { Component } from "react";
 import "./InputField.styles.css";
+import InputArea from "../input-area/InputArea.component";
+import SubmitArrow from "../submit-arrow/SubmitArrow.component";
 
 class InputField extends Component {
   constructor() {
@@ -10,26 +12,24 @@ class InputField extends Component {
   }
 
   componentDidMount() {
-
+    //
   }
 
   render() {
-
     const onChangeHandler = (e) => {
-        console.log(e);
-    }
+      console.log(e);
+    };
 
     return (
       <div className="inputfield-container">
         <h2>IP Address Tracker</h2>
-        <div className="input-area">
-          <input
-            className="input-field"
-            type="search"
-            placeholder="Enter domain or IP number"
-            onChange={onChangeHandler}
-          ></input>
-          {/*                 <SubmitArrow></SubmitArrow> */}
+        <div>
+          <div className="input-area-wrapper">
+            <InputArea onChange={onChangeHandler}></InputArea>
+          </div>
+          <div className="submit-arrow-wrapper">
+            <SubmitArrow></SubmitArrow>
+            </div>
         </div>
       </div>
     );
