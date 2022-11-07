@@ -9,7 +9,18 @@
 }
 
 .input-area-wrapper {
-  margin-bottom: 2rem;
+  margin-bottom: 6rem;
+  display: inline-block;
 
 }
 
+.submit-arrow-wrapper {
+  display: inline-block;
+  height: 36px;
+  width: auto;
+}
+
+.arrow {
+  height: 36px;
+  width: auto;
+}

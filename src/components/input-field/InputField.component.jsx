@@ -7,7 +7,7 @@ class InputField extends Component {
   constructor() {
     super();
     this.state = {
-      IpInput: "",
+      userInput: "",
     };
   }
 
@@ -17,7 +17,14 @@ class InputField extends Component {
 
   render() {
     const onChangeHandler = (e) => {
-      console.log(e);
+      console.log(e.target.value);
+      this.setState(
+        ()=> {
+        return { userInput: e.target.value }
+      },  
+      () => {
+        console.log('this.state.userInput: ', this.state.userInput)
+      })
     };
 
     return (
@@ -28,7 +35,7 @@ class InputField extends Component {
             <InputArea onChange={onChangeHandler}></InputArea>
           </div>
           <div className="submit-arrow-wrapper">
-            <SubmitArrow></SubmitArrow>
+            <SubmitArrow inputValue={this.state.userInput}></SubmitArrow>
             </div>
         </div>
       </div>

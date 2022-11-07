@@ -1,0 +1,11 @@
+.infobox-data-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 2rem;
+    border: 1px solid gray;
+    max-width: 50%;
+    margin: -4rem auto;
+    border-radius: 10px;
+    background-color: white;
+}

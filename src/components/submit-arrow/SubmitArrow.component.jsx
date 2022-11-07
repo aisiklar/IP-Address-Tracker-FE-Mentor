@@ -1,16 +1,25 @@
-import { Component } from "react";
 import "./SubmitArrow.styles.css";
+import { useState } from "react";
 
-class SubmitArrow extends Component {
-  render() {
-    return (
-      <div>
-       <button>
-        <img src="../../../images/icon-arrow.svg" alt="arrow"></img>
-        </button>
-      </div>
-    );
-  }
-}
+const SubmitArrow = (props) => {
+  const [queryInput, setQueryInput] = useState("");
+
+  const submitHandler = () => {
+    setQueryInput(props.inputValue);
+    console.log("props.inputValue: ", props.inputValue);
+  };
+
+  return (
+    <div>
+      <input
+        className="arrow"
+        type="image"
+        alt="button"
+        src="../../../images/icons8-up-arrow-48.png"
+        onClick={submitHandler}
+      ></input>
+    </div>
+  );
+};
 
 export default SubmitArrow;
