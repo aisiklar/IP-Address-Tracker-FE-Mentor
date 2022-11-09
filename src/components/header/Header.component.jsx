@@ -3,20 +3,45 @@ import InfoBox from "../info-box/InfoBox.component";
 import SubmitArrow from "../submit-arrow/SubmitArrow.component";
 import "./Header.styles.css";
 
+import { Children, useState } from 'react';
+
 const Header = () => {
+
+const [userInput, setUserInput] = useState('');
+const [ifSubmitted, setIfSubmitted] = useState(false);
+const [dataToFetch, setDataToFetch] = useState('');
+
+console.log('ifSubmitted: ', ifSubmitted);
+
+if (ifSubmitted === true) {
+    console.log('if Submitted is true, changing the state dataToFetch')
+    setDataToFetch(userInput);
+}
+
+
+const onChangeHandler = (e) => {
+    //console.log('e.target.value: ', e.target.value);
+    setUserInput(e.target.value);
+}
+
+const ifClickedHandler = (isClicked) => {
+    console.log('isClicked: ', isClicked);   
+    setIfSubmitted(isClicked);
+}
+
   return (
     <div className="header-container">
       <h2 className="app-title">IP Address Tracker</h2>
       <div className="inputField-arrow-wrapper">
         <div className="inputField-wrapper">
-          <InputField></InputField>
+          <InputField onChange={onChangeHandler}></InputField>
         </div>
         <div className="submit-arrow-wrapper">
-          <SubmitArrow></SubmitArrow>
+          <SubmitArrow ifClicked={ifClickedHandler}></SubmitArrow>
         </div>
       </div>
       <div className="infobox-wrapper">
-        <InfoBox></InfoBox>
+        <InfoBox data={dataToFetch}></InfoBox>
       </div>
     </div>
   );

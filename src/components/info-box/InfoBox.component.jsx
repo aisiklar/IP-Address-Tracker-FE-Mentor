@@ -1,8 +1,9 @@
 import "./InfoBox.styles.css";
 import FetchedData from "./FetchedData.component";
 
-const InfoBox = () => {
+const InfoBox = (props) => {
 
+  console.log('props.data: ', props.data);
   
   return (
     <div className="infobox-data-container">

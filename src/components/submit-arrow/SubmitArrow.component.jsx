@@ -2,13 +2,16 @@ import "./SubmitArrow.styles.css";
 import { useState } from "react";
 
 const SubmitArrow = (props) => {
-  const [queryInput, setQueryInput] = useState("");
+  //console.log('props.ifClicked: ', props.ifClicked);
+ 
+//  const [arrowClicked, setArrowClicked] = useState(false);
 
-  const submitHandler = () => {
-    setQueryInput(props.inputValue);
-    console.log("props.inputValue: ", props.inputValue);
-  };
-
+  const submitHandler = (event) => {
+    console.log('button clicked');
+    console.log('event: ', event);
+    props.ifClicked(true);
+  }
+  
   return (
     <div>
       <input
