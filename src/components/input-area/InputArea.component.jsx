@@ -3,7 +3,6 @@ import "./InputArea.styles.css";
 
 class InputArea extends Component {
 
-  console.log();
 
   render() {
     return (
