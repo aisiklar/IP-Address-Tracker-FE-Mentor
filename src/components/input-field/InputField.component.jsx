@@ -19,25 +19,18 @@ class InputField extends Component {
     const onChangeHandler = (e) => {
       console.log(e.target.value);
       this.setState(
-        ()=> {
-        return { userInput: e.target.value }
-      },  
-      () => {
-        console.log('this.state.userInput: ', this.state.userInput)
-      })
+        () => {
+          return { userInput: e.target.value };
+        },
+        () => {
+          console.log("this.state.userInput: ", this.state.userInput);
+        }
+      );
     };
 
     return (
       <div className="inputfield-container">
-        <h2>IP Address Tracker</h2>
-        <div>
-          <div className="input-area-wrapper">
-            <InputArea onChange={onChangeHandler}></InputArea>
-          </div>
-          <div className="submit-arrow-wrapper">
-            <SubmitArrow inputValue={this.state.userInput}></SubmitArrow>
-            </div>
-        </div>
+        <InputArea onChange={onChangeHandler}></InputArea>
       </div>
     );
   }

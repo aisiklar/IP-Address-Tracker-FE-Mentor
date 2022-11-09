@@ -1,0 +1,10 @@
+.fetchdata-container {
+    margin: 0rem 2rem;
+    border-right: 1px solid gray;
+    padding-right: 2rem;
+}
+
+.fetchdata-container:last-child {
+    border-right: none;
+    padding-right: 0;
+}

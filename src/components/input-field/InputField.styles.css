@@ -1,26 +1,4 @@
 .inputfield-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-image: url('../../../images/pattern-bg.png') ;
-  background-repeat: no-repeat;
-  background-size: cover;
-  color: white;
 }
 
-.input-area-wrapper {
-  margin-bottom: 6rem;
-  display: inline-block;
 
-}
-
-.submit-arrow-wrapper {
-  display: inline-block;
-  height: 36px;
-  width: auto;
-}
-
-.arrow {
-  height: 36px;
-  width: auto;
-}

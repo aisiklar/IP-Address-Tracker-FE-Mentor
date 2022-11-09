@@ -1,7 +1,9 @@
+import './FetchedData.styles.css';
+
 
 const FetchedData = (props) => {
     return (
-        <div>
+        <div className="fetchdata-container">
             <h3>{props.text}</h3>
             <p>{props.data}</p>
 

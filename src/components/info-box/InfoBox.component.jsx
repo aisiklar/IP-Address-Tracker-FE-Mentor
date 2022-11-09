@@ -5,7 +5,7 @@ const InfoBox = () => {
 
   
   return (
-    <div className="infobox-data-wrapper">
+    <div className="infobox-data-container">
       <FetchedData text="IP ADDRESS" data="IP Address"></FetchedData>
       <FetchedData text="LOCATION" data="NY"></FetchedData>
       <FetchedData text="TIMEZONE" data="timezone"></FetchedData>
