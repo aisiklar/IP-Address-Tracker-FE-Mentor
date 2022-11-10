@@ -13,10 +13,7 @@ const [dataToFetch, setDataToFetch] = useState('');
 
 console.log('ifSubmitted: ', ifSubmitted);
 
-if (ifSubmitted === true) {
-    console.log('if Submitted is true, changing the state dataToFetch')
-    setDataToFetch(userInput);
-}
+
 
 
 const onChangeHandler = (e) => {
@@ -27,6 +24,10 @@ const onChangeHandler = (e) => {
 const ifClickedHandler = (isClicked) => {
     console.log('isClicked: ', isClicked);   
     setIfSubmitted(isClicked);
+   if (isClicked === true) {
+      console.log('if Submitted is true, changing the state dataToFetch')
+      setDataToFetch(userInput);
+  }
 }
 
   return (
