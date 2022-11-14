@@ -5,7 +5,7 @@ import "./Header.styles.css";
 import { useState } from "react";
 import { MapContainer, TileLayer, useMap } from "react-leaflet";
 
-const Header = () => {
+const Header = (props) => {
   const [userInput, setUserInput] = useState("");
   const [ifSubmitted, setIfSubmitted] = useState(false);
   const [dataToFetch, setDataToFetch] = useState("");
@@ -26,6 +26,12 @@ const Header = () => {
     }
   };
 
+  const coordValHandler = (values) => {
+    console.log('values: ', values);
+    props.mapCoord(values);
+  }
+
+
   return (
     <div className="header-container">
       <h2 className="app-title">IP Address Tracker</h2>
@@ -38,7 +44,10 @@ const Header = () => {
         </div>
       </div>
       <div className="infobox-wrapper">
-        <InfoBox data={dataToFetch}></InfoBox>
+        <InfoBox 
+          data={dataToFetch} 
+          coordVal={coordValHandler}
+          ></InfoBox>
       </div>
     </div>
   );

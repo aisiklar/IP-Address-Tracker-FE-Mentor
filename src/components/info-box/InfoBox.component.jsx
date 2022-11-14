@@ -8,6 +8,7 @@ const InfoBox = (props) => {
   const [city, setCity] = useState("");
   const [timezone, setTimezone] = useState("");
   const [isp, setIsp] = useState("");
+  const [coordValues, setCoordValues] = useState([39.85903128729068, 32.646086366188385]);
 
   //console.log('ipAddress, city, timezone, isp: ', ipAddress, city, timezone, isp);
 
@@ -47,7 +48,7 @@ const InfoBox = (props) => {
     console.log("whether the user input data is not empty string");
     findInputType(data);
   }
-  if (data == '') {
+  if (data === '') {
     console.log('the input data is empty string. Return request ip address');
     inputTypeParam = '';
   }
@@ -67,12 +68,15 @@ const InfoBox = (props) => {
       await setCity(returnData.location.city);
       await setTimezone(returnData.location.timezone);
       await setIsp(returnData.isp);
+      await setCoordValues(returnData.location.lat, returnData.location.lng)
     } catch (error) {
       console.log(error);
     }
   };
 
   //getIpData();
+
+  props.coordVal(coordValues);
 
   return (
     <div>
