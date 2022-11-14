@@ -12,3 +12,8 @@
 
 }
 
+
+.map-container {
+  height: 400px;
+  z-index: -2;
+}

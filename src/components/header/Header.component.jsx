@@ -2,33 +2,29 @@ import InputField from "../input-field/InputField.component";
 import InfoBox from "../info-box/InfoBox.component";
 import SubmitArrow from "../submit-arrow/SubmitArrow.component";
 import "./Header.styles.css";
-
-import { Children, useState } from 'react';
+import { useState } from "react";
+import { MapContainer, TileLayer, useMap } from "react-leaflet";
 
 const Header = () => {
+  const [userInput, setUserInput] = useState("");
+  const [ifSubmitted, setIfSubmitted] = useState(false);
+  const [dataToFetch, setDataToFetch] = useState("");
 
-const [userInput, setUserInput] = useState('');
-const [ifSubmitted, setIfSubmitted] = useState(false);
-const [dataToFetch, setDataToFetch] = useState('');
+  console.log("ifSubmitted: ", ifSubmitted);
 
-console.log('ifSubmitted: ', ifSubmitted);
-
-
-
-
-const onChangeHandler = (e) => {
+  const onChangeHandler = (e) => {
     //console.log('e.target.value: ', e.target.value);
     setUserInput(e.target.value);
-}
+  };
 
-const ifClickedHandler = (isClicked) => {
-    console.log('isClicked: ', isClicked);   
+  const ifClickedHandler = (isClicked) => {
+    console.log("isClicked: ", isClicked);
     setIfSubmitted(isClicked);
-   if (isClicked === true) {
-      console.log('if Submitted is true, changing the state dataToFetch')
+    if (isClicked === true) {
+      console.log("if Submitted is true, changing the state dataToFetch");
       setDataToFetch(userInput);
-  }
-}
+    }
+  };
 
   return (
     <div className="header-container">
