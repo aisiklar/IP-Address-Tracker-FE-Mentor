@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./InfoBox.styles.css";
 import FetchedData from "./FetchedData.component";
+import { useEffect } from "react";
 //import API_KEY from "../../.secret";
 
 const InfoBox = (props) => {
@@ -8,7 +9,10 @@ const InfoBox = (props) => {
   const [city, setCity] = useState("");
   const [timezone, setTimezone] = useState("");
   const [isp, setIsp] = useState("");
-  const [coordValues, setCoordValues] = useState([39.85903128729068, 32.646086366188385]);
+  const [coordValues, setCoordValues] = useState([]);
+
+
+  console.log('coordValues in infobox comp: ', coordValues);
 
   //console.log('ipAddress, city, timezone, isp: ', ipAddress, city, timezone, isp);
 
@@ -75,8 +79,11 @@ const InfoBox = (props) => {
   };
 
   //getIpData();
-
-  props.coordVal(coordValues);
+  const onClickHandler = (e) => {
+    console.log('button clicked to modify the coordinates');
+    props.coordVal([39.85903128729068, 32.646086366188385]);
+    console.log('coordVal is called to change the values');
+  }
 
   return (
     <div>
@@ -85,6 +92,9 @@ const InfoBox = (props) => {
         <FetchedData text="LOCATION" data={city}></FetchedData>
         <FetchedData text="TIMEZONE" data={timezone}></FetchedData>
         <FetchedData text="ISP" data={isp}></FetchedData>
+      </div>
+      <div>
+        <button onClick={onClickHandler}> click to change the coords</button>
       </div>
       
     </div>
