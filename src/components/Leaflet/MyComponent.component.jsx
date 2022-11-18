@@ -1,6 +1,6 @@
 import { useMap } from 'https://cdn.esm.sh/react-leaflet/hooks'
 
-const ChangeMap = (props) => {
+const MyComponent = (props) => {
     console.log('props.centerCoords: ', props.centerCoords);
     const map = useMap();
     console.log('map center:', map.getCenter())
@@ -9,4 +9,4 @@ const ChangeMap = (props) => {
     return null;
 }
 
-export default ChangeMap;
+export default MyComponent;
