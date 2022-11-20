@@ -6,7 +6,7 @@ import MyComponent from "./components/Leaflet/MyComponent.component";
 
 function App() {
   console.log("render App()");
-  const [coord, setCoord] = useState([]);
+  const [coord, setCoord] = useState([51, -0.09]);
   console.log("coord: ", coord);
   let initialPosition = [51, -0.09];
 
@@ -23,27 +23,25 @@ function App() {
 
   return (
     <div className="App">
-      <Header /* mapCoord={coordHandler} */></Header>
+      <Header mapCoord={coordHandler}></Header>
       <div className="leaflet-map">
-        {coord.length >= 1 ? (
-          <MapContainer
-            className="map-container"
-            center={coord}
-            zoom={13}
-            scrollWheelZoom={false}
-          >
-            <MyComponent mapCoord={coordHandler}></MyComponent>
-            <TileLayer
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-            <Marker position={coord}>
-              <Popup>
-                A pretty CSS3 popup. <br /> Easily customizable.
-              </Popup>
-            </Marker>
-          </MapContainer>
-        ) : null}
+        <MapContainer
+          className="map-container"
+          center={coord}
+          zoom={13}
+          scrollWheelZoom={false}
+        >
+          <MyComponent mapCoord={[36.3, 24.5]}></MyComponent>
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <Marker position={coord}>
+            <Popup>
+              A pretty CSS3 popup. <br /> Easily customizable.
+            </Popup>
+          </Marker>
+        </MapContainer>
       </div>
     </div>
   );
