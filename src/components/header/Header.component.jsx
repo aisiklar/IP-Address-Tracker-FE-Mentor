@@ -3,7 +3,6 @@ import InfoBox from "../info-box/InfoBox.component";
 import SubmitArrow from "../submit-arrow/SubmitArrow.component";
 import "./Header.styles.css";
 import { useState } from "react";
-import { MapContainer, TileLayer, useMap } from "react-leaflet";
 
 const Header = (props) => {
   const [userInput, setUserInput] = useState("");

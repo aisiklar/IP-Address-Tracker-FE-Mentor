@@ -79,6 +79,7 @@ const InfoBox = (props) => {
   };
 
   //getIpData();
+  
   const onClickHandler = (e) => {
     console.log('button clicked to modify the coordinates');
     props.coordVal([39.85903128729068, 32.646086366188385]);
