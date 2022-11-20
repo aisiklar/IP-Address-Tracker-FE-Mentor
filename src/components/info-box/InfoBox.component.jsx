@@ -79,7 +79,21 @@ const InfoBox = (props) => {
   };
 
   //getIpData();
-  
+ 
+  //this function simulates initial coord fetching (request's IP Address) from the API
+  const changeCoordsOnMount = () => {
+    // assign the initial coord to 41.37725175426708, 2.1782678531286876
+    setTimeout( () => {
+      props.coordVal([41.3773, 2.1783]);
+    }, 3000)
+
+  }
+
+  // call changeCoordsOnMount upon mount
+  useEffect( () => {
+    changeCoordsOnMount();
+  });
+
   const onClickHandler = (e) => {
     console.log('button clicked to modify the coordinates');
     props.coordVal([39.85903128729068, 32.646086366188385]);
