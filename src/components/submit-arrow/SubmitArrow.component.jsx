@@ -1,5 +1,6 @@
 import "./SubmitArrow.styles.css";
 import { useState } from "react";
+import arrow from '../../images2/icon-arrow.svg';
 
 const SubmitArrow = (props) => {
   //console.log('props.ifClicked: ', props.ifClicked);
@@ -13,7 +14,7 @@ const SubmitArrow = (props) => {
   }
   
   return (
-    <div>
+    <div className="arrow-container">
       <input
         className="arrow"
         alt="button"

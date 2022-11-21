@@ -21,13 +21,13 @@ h2 {
 }
 
 .inputField-wrapper {
-  display: inline-block;
+  display: inline-flex;
 }
 
 .submit-arrow-wrapper {
-  display: inline-block;
-  height: 36px;
-  width: auto;
+  display: inline-flex;
+  height: 2rem;
+  width: 2rem;
   background-color: black;
   
 }
@@ -35,14 +35,5 @@ h2 {
 .infobox-wrapper {
   margin-top: 0rem;
   margin-bottom: -4rem;
-}
-
-.arrow {
-  height: 12px;
-  width: 12px;
-  background-image: url('../../../images/icon-arrow.svg');
-  background-size: contain;
-  background-color: black;
-  background-repeat: no-repeat;
 }
 
