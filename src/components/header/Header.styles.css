@@ -8,16 +8,16 @@
 }
 
 h2 {
-    color: white;
-    margin-top: 3rem;
-  margin-bottom: 2rem;
+  color: white;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .inputField-arrow-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 3rem;
+  margin-bottom: 1.7rem;
 }
 
 .inputField-wrapper {
@@ -26,10 +26,11 @@ h2 {
 
 .submit-arrow-wrapper {
   display: inline-flex;
-  height: 2rem;
-  width: 2rem;
+  height: 2.8rem;
+  width: 2.8rem;
   background-color: black;
-  
+  border-top-right-radius: 35%;
+  border-bottom-right-radius: 35%;
 }
 
 .infobox-wrapper {
@@ -37,3 +38,12 @@ h2 {
   margin-bottom: -4rem;
 }
 
+@media only screen and (max-width: 725px) {
+  .inputField-arrow-wrapper {
+    margin-bottom: 1.5rem;
+  }
+
+  .infobox-wrapper {
+    margin-bottom: -10rem;
+  }
+}

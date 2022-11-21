@@ -101,9 +101,6 @@ const InfoBox = (props) => {
         <FetchedData text="TIMEZONE" data={timezone}></FetchedData>
         <FetchedData text="ISP" data={isp}></FetchedData>
       </div>
-      <div>
-        <button onClick={onClickHandler}> click to change the coords</button>
-      </div>
     </div>
   );
 };
