@@ -16,9 +16,7 @@ const SubmitArrow = (props) => {
     <div>
       <input
         className="arrow"
-        type="image"
         alt="button"
-        src="../../../images/icons8-up-arrow-48.png"
         onClick={submitHandler}
       ></input>
     </div>

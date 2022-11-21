@@ -11,8 +11,7 @@ const InfoBox = (props) => {
   const [isp, setIsp] = useState("");
   const [coordValues, setCoordValues] = useState([]);
 
-
-  console.log('coordValues in infobox comp: ', coordValues);
+  console.log("coordValues in infobox comp: ", coordValues);
 
   //console.log('ipAddress, city, timezone, isp: ', ipAddress, city, timezone, isp);
 
@@ -32,18 +31,18 @@ const InfoBox = (props) => {
   const findInputType = (data) => {
     if (data.includes("@")) {
       console.log("input data type: email");
-      inputTypeParam = 'email';
+      inputTypeParam = "email";
     }
 
     if (data.matchAll(/[a-z]/gi).length >= 1) {
       console.log(data.matchAll(/[a-z]/gi));
       console.log("input data type: domain");
-      inputTypeParam = 'domain';
+      inputTypeParam = "domain";
     }
 
     if (data.match(/[0-9], ./) >= 1) {
       console.log("input data type: ip address");
-      inputTypeParam = 'ipAddress';
+      inputTypeParam = "ipAddress";
     }
     return inputTypeParam;
   };
@@ -52,17 +51,17 @@ const InfoBox = (props) => {
     console.log("whether the user input data is not empty string");
     findInputType(data);
   }
-  if (data === '') {
-    console.log('the input data is empty string. Return request ip address');
-    inputTypeParam = '';
+  if (data === "") {
+    console.log("the input data is empty string. Return request ip address");
+    inputTypeParam = "";
   }
 
-  console.log('inputTypeParam: ', inputTypeParam);
+  console.log("inputTypeParam: ", inputTypeParam);
 
   const getIpData = async () => {
     //findInputType(data);
     let queryData = baseUrl + inputTypeParam + data;
-    console.log('queryData: ', queryData);
+    console.log("queryData: ", queryData);
 
     try {
       const res = await fetch(queryData);
@@ -72,33 +71,27 @@ const InfoBox = (props) => {
       await setCity(returnData.location.city);
       await setTimezone(returnData.location.timezone);
       await setIsp(returnData.isp);
-      await setCoordValues(returnData.location.lat, returnData.location.lng)
+      await setCoordValues(returnData.location.lat, returnData.location.lng);
     } catch (error) {
       console.log(error);
     }
   };
 
   //getIpData();
- 
-  //this function simulates initial coord fetching (request's IP Address) from the API
-  const changeCoordsOnMount = () => {
-    // assign the initial coord to 41.37725175426708, 2.1782678531286876
-    setTimeout( () => {
+
+  if (coordValues.length === 0) {
+    console.log('in the if loop, coordValues.length === 0')
+    setTimeout(()=>{
+      setCoordValues([41.3773, 2.1783]);
       props.coordVal([41.3773, 2.1783]);
-    }, 3000)
-
+    }, 3000);
   }
-
-  // call changeCoordsOnMount upon mount
-  useEffect( () => {
-    changeCoordsOnMount();
-  });
 
   const onClickHandler = (e) => {
-    console.log('button clicked to modify the coordinates');
+    console.log("button clicked to modify the coordinates");
     props.coordVal([39.85903128729068, 32.646086366188385]);
-    console.log('coordVal is called to change the values');
-  }
+    console.log("coordVal is called to change the values");
+  };
 
   return (
     <div>
@@ -111,7 +104,6 @@ const InfoBox = (props) => {
       <div>
         <button onClick={onClickHandler}> click to change the coords</button>
       </div>
-      
     </div>
   );
 };

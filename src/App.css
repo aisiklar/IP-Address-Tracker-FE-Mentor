@@ -1,7 +1,10 @@
-.App {
-  text-align: center;
+body, html {
   font-family: 'Rubik', sans-serif;
-  font-size: 10px;
+  font-size: 16px;
+}
+
+.app {
+  text-align: center;
 }
 
 .header {

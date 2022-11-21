@@ -28,6 +28,8 @@ h2 {
   display: inline-block;
   height: 36px;
   width: auto;
+  background-color: black;
+  
 }
 
 .infobox-wrapper {
@@ -36,7 +38,11 @@ h2 {
 }
 
 .arrow {
-  height: 36px;
-  width: auto;
+  height: 12px;
+  width: 12px;
+  background-image: url('../../../images/icon-arrow.svg');
+  background-size: contain;
+  background-color: black;
+  background-repeat: no-repeat;
 }
 

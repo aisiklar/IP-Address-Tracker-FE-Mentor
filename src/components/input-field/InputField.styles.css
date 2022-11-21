@@ -1,4 +1,12 @@
+.input-area {
+    box-sizing: border-box;
+    height: 2rem;
+    padding: 3px 1px;
+    width: 100%;
+}
+
 .inputfield-container {
+    max-width: 300px;
 }
 
 
