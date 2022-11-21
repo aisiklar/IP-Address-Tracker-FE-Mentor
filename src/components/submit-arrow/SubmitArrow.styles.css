@@ -1,14 +1,21 @@
-.arrow {
-    background-image: url('../../../images/icon-arrow.svg');
-    background-size: contain;
-    background-color: black;
-    background-repeat: no-repeat;
-  }
-  
   .arrow-container {
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .arrow-container button {
+    background-color: black;
+    border: none;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .arrow-container img {
+    background-color: black;
   }
