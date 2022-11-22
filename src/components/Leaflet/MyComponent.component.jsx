@@ -9,7 +9,7 @@ const MyComponent = (props) => {
 
     const map = useMap();
     useEffect(()=>{
-    map.panTo([lat, lng], 0.25);
+    map.flyTo([lat, lng], map.getZoom());
 
     }, []);
 
