@@ -17,6 +17,6 @@ body, html {
 
 
 .map-container {
-  height: 400px;
+  height: 600px;
   z-index: -2;
 }

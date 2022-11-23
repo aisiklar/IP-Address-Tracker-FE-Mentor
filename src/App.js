@@ -1,9 +1,12 @@
 import "./App.css";
 import Header from "./components/header/Header.component";
 import { useState } from "react";
-import { MapContainer, TileLayer, Marker } from "react-leaflet";
+import { MapContainer, TileLayer } from "react-leaflet";
+import { Marker } from 'react-leaflet/Marker';
 import MyComponent from "./components/Leaflet/MyComponent.component";
-import markerIcon from 'leaflet';
+import iconLoc from './images2/icon-location.svg';
+import L from 'leaflet';
+
 
 function App() {
   console.log("render App()");
@@ -21,8 +24,8 @@ function App() {
     setCoord([36.6, 46.2]);
   }, []); */
 
-  const myIcon = markerIcon({
-    iconUrl:'./images2/icon-location.svg'
+  const myIcon = new L.Icon({
+    iconUrl: iconLoc
   })
 
   return (
@@ -41,7 +44,7 @@ function App() {
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            <Marker position={coord} icon={myIcon} ></Marker>
+            <Marker position={coord} icon={myIcon}></Marker>
           </MapContainer>
         </div>
       ) : null}

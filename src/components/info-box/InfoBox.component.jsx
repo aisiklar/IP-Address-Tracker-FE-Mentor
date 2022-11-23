@@ -31,24 +31,32 @@ const InfoBox = (props) => {
   const findInputType = (data) => {
     if (data.includes("@")) {
       console.log("input data type: email");
-      inputTypeParam = "email";
+      inputTypeParam = "&email=";
+      return inputTypeParam;
     }
 
-    if (data.matchAll(/[a-z]/gi).length >= 1) {
-      console.log(data.matchAll(/[a-z]/gi));
-      console.log("input data type: domain");
-      inputTypeParam = "domain";
-    }
-
-    if (data.match(/[0-9], ./) >= 1) {
+    if (data.match(/[0-9]./g) !== null) {
       console.log("input data type: ip address");
-      inputTypeParam = "ipAddress";
+      inputTypeParam = "&ipAddress=";
+      return inputTypeParam;
+    } 
+    else {
+      inputTypeParam = "&domain=";
+      return inputTypeParam;
     }
-    return inputTypeParam;
+
+   /*  if (data.match(/[^0-9][a-z]|[.]/gi).length >= 1) {
+      console.log(data.match(/[a-z]|[.]/gi));
+      console.log("input data type: domain");
+      inputTypeParam = "&domain=";
+      return inputTypeParam;
+    } */
+
+   
   };
 
   if (data !== "") {
-    console.log("whether the user input data is not empty string");
+    console.log("user input data is not empty string");
     findInputType(data);
   }
   if (data === "") {
@@ -57,6 +65,8 @@ const InfoBox = (props) => {
   }
 
   console.log("inputTypeParam: ", inputTypeParam);
+  let queryData = baseUrl + inputTypeParam + data;
+    console.log("queryData: ", queryData);
 
   const getIpData = async () => {
     //findInputType(data);
