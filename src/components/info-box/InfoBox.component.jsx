@@ -39,38 +39,37 @@ const InfoBox = (props) => {
       console.log("input data type: ip address");
       inputTypeParam = "&ipAddress=";
       return inputTypeParam;
-    } 
-    else {
+    } else {
       inputTypeParam = "&domain=";
       return inputTypeParam;
     }
 
-   /*  if (data.match(/[^0-9][a-z]|[.]/gi).length >= 1) {
+    /*  if (data.match(/[^0-9][a-z]|[.]/gi).length >= 1) {
       console.log(data.match(/[a-z]|[.]/gi));
       console.log("input data type: domain");
       inputTypeParam = "&domain=";
       return inputTypeParam;
     } */
-
-   
   };
 
-  if (data !== "") {
-    console.log("user input data is not empty string");
-    findInputType(data);
-  }
-  if (data === "") {
-    console.log("the input data is empty string. Return request ip address");
-    inputTypeParam = "";
-  }
-
-  console.log("inputTypeParam: ", inputTypeParam);
+  /*   console.log("inputTypeParam: ", inputTypeParam);
   let queryData = baseUrl + inputTypeParam + data;
     console.log("queryData: ", queryData);
-
+ */
   const getIpData = async () => {
-    //findInputType(data);
+    if (data !== "") {
+      console.log("user input data is not empty string");
+      findInputType(data);
+    }
+    if (data === "") {
+      console.log("the input data is empty string. Return request ip address");
+      inputTypeParam = "";
+    }
+    // test
+    console.log("inputTypeParam: ", inputTypeParam);
+
     let queryData = baseUrl + inputTypeParam + data;
+    // test, remove in production!
     console.log("queryData: ", queryData);
 
     try {
@@ -81,27 +80,27 @@ const InfoBox = (props) => {
       await setCity(returnData.location.city);
       await setTimezone(returnData.location.timezone);
       await setIsp(returnData.isp);
-      await setCoordValues(returnData.location.lat, returnData.location.lng);
+      await setCoordValues([returnData.location.lat, returnData.location.lng]);
     } catch (error) {
       console.log(error);
     }
   };
 
-  //getIpData();
+  getIpData();
 
-  if (coordValues.length === 0) {
-    console.log('in the if loop, coordValues.length === 0')
-    setTimeout(()=>{
+  useEffect(() => {
+    console.log('in the useEffect to change coordValues');
+    props.coordVal(coordValues);
+
+  },[coordValues]);
+
+  /*   if (coordValues.length === 0) {
+    console.log("in the if loop, coordValues.length === 0");
+    setTimeout(() => {
       setCoordValues([41.3773, 2.1783]);
       props.coordVal([41.3773, 2.1783]);
     }, 3000);
-  }
-
-  const onClickHandler = (e) => {
-    console.log("button clicked to modify the coordinates");
-    props.coordVal([39.85903128729068, 32.646086366188385]);
-    console.log("coordVal is called to change the values");
-  };
+  } */
 
   return (
     <div>
