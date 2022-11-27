@@ -11,6 +11,7 @@ const InfoBox = (props) => {
   const [isp, setIsp] = useState("");
   const [coordValues, setCoordValues] = useState([]);
 
+  console.log("InfoBox (re-)render");
   console.log("coordValues in infobox comp: ", coordValues);
 
   //console.log('ipAddress, city, timezone, isp: ', ipAddress, city, timezone, isp);
@@ -75,6 +76,8 @@ const InfoBox = (props) => {
     try {
       const res = await fetch(queryData);
       const returnData = await res.json();
+      //test
+      await console.log("data fetching done! returnData: ", returnData);
       //await console.log("response from the ip API: ", returnData);
       await setIpAddress(returnData.ip);
       await setCity(returnData.location.city);
@@ -86,13 +89,26 @@ const InfoBox = (props) => {
     }
   };
 
-  getIpData();
+  //getIpData();
+
+  // test
+  // expected to run this when the coordValues change (therefore once in the first render)
+  useEffect(() => {
+    console.log(
+      "in useEffect to change coordValues. Will re-render if CoordValues change"
+    );
+    setTimeout(() => {
+      console.log("inside setTimeout fnc to set coordValues");
+      setCoordValues([36.51550916150737, -6.285116629540005]);
+    }, 2000);
+  }, [JSON.stringify(coordValues)]);
 
   useEffect(() => {
-    console.log('in the useEffect to change coordValues');
+    console.log(
+      "in the useEffect to change coordVal. Runs only if coordValues change"
+    );
     props.coordVal(coordValues);
-
-  },[coordValues]);
+  }, [JSON.stringify(coordValues)]);
 
   /*   if (coordValues.length === 0) {
     console.log("in the if loop, coordValues.length === 0");

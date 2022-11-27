@@ -8,7 +8,8 @@ const Header = (props) => {
   const [userInput, setUserInput] = useState("");
   const [ifSubmitted, setIfSubmitted] = useState(false);
   const [dataToFetch, setDataToFetch] = useState("");
-
+  
+  console.log('Header (re-)render');
   console.log("ifSubmitted: ", ifSubmitted);
 
   const onChangeHandler = (e) => {
@@ -26,7 +27,7 @@ const Header = (props) => {
   };
 
   const coordValHandler = (values) => {
-    console.log('values: ', values);
+    console.log('in Header, coordValHandler(), changing values: ', values);
     props.mapCoord(values);
   }
 

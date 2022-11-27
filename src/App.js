@@ -11,10 +11,11 @@ import L from 'leaflet';
 function App() {
   console.log("render App()");
   const [coord, setCoord] = useState([]);
-  console.log("coord: ", coord);
+  console.log("coord to be sent to leaflet lib: ", coord);
 
   const coordHandler = (coordValues) => {
-    console.log("coordValues are: ", coordValues);
+    console.log("coordValues (coming from Header) are: ", coordValues);
+    console.log('coordValues are to be assigned coord');
     setCoord(coordValues);
   };
 
