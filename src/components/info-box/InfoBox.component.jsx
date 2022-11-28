@@ -89,11 +89,23 @@ const InfoBox = (props) => {
     }
   };
 
-  //getIpData();
+  // expected to run this when the props.data change, after 1st render (to prevent infinite rendering)
+  useEffect(() => {
+    getIpData();
+  }, [JSON.stringify(props.data)]);
+
+  // expected to run this when the coordValues change, after 1st render (to prevent infinite rendering)
+  useEffect(() => {
+    console.log(
+      "in the useEffect to change coordVal. Runs only if coordValues change"
+    );
+    props.coordVal(coordValues);
+  }, [JSON.stringify(coordValues)]);
+
 
   // test
   // expected to run this when the coordValues change (therefore once in the first render)
-  useEffect(() => {
+  /* useEffect(() => {
     console.log(
       "in useEffect to change coordValues. Will re-render if CoordValues change"
     );
@@ -103,13 +115,7 @@ const InfoBox = (props) => {
     }, 2000);
   }, [JSON.stringify(coordValues)]);
 
-  useEffect(() => {
-    console.log(
-      "in the useEffect to change coordVal. Runs only if coordValues change"
-    );
-    props.coordVal(coordValues);
-  }, [JSON.stringify(coordValues)]);
-
+ */
   /*   if (coordValues.length === 0) {
     console.log("in the if loop, coordValues.length === 0");
     setTimeout(() => {

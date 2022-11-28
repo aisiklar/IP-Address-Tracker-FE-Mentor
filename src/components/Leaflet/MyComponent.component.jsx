@@ -9,9 +9,10 @@ const MyComponent = (props) => {
 
     const map = useMap();
     useEffect(()=>{
+    console.log('in the useEffect to flyTo new coord.');
     map.flyTo([lat, lng], map.getZoom());
 
-    }, []);
+    }, [lat, lng]);
 
     console.log('map center:', map.getCenter())
    // map.setCenter(props.centerCoords);
