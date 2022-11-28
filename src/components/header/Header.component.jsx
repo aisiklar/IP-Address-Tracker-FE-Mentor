@@ -6,31 +6,29 @@ import { useState } from "react";
 
 const Header = (props) => {
   const [userInput, setUserInput] = useState("");
-  const [ifSubmitted, setIfSubmitted] = useState(false);
+  //const [ifSubmitted, setIfSubmitted] = useState(false);
   const [dataToFetch, setDataToFetch] = useState("");
   
-  console.log('Header (re-)render');
-  console.log("ifSubmitted: ", ifSubmitted);
 
+  // receives userInput from InputField comp and assigns it to userInput
   const onChangeHandler = (e) => {
-    //console.log('e.target.value: ', e.target.value);
     setUserInput(e.target.value);
   };
 
+  // receives info from SubmitArrow comp, whether the 'submission' is done (button clicked or not). 
+  // if button is clicked, send the userinput to InfoBox comp.
+  // if button is not clicked, sent empty string to InfoBox comp.
   const ifClickedHandler = (isClicked) => {
-    console.log("isClicked: ", isClicked);
-    setIfSubmitted(isClicked);
+//    setIfSubmitted(isClicked);
     if (isClicked === true) {
-      console.log("if Submitted is true, changing the state dataToFetch");
       setDataToFetch(userInput);
     }
   };
 
+  // receives the coord values from InfoBox and sends it to App.js
   const coordValHandler = (values) => {
-    console.log('in Header, coordValHandler(), changing values: ', values);
     props.mapCoord(values);
   }
-
 
   return (
     <div className="header-container">

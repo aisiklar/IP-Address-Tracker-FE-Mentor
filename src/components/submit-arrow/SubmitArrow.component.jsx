@@ -1,15 +1,10 @@
 import "./SubmitArrow.styles.css";
-//import { useState } from "react";
 import arrow from "../../images2/icon-arrow.svg";
 
 const SubmitArrow = (props) => {
-  //console.log('props.ifClicked: ', props.ifClicked);
 
-  //  const [arrowClicked, setArrowClicked] = useState(false);
-
+  // listens for the button click and sends the bool value to Header comp.
   const submitHandler = (event) => {
-    console.log("button clicked");
-    console.log("event: ", event);
     props.ifClicked(true);
   };
 

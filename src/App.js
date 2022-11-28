@@ -9,22 +9,16 @@ import L from 'leaflet';
 
 
 function App() {
-  console.log("render App()");
   const [coord, setCoord] = useState([]);
   console.log("coord to be sent to leaflet lib: ", coord);
 
+  // receives the coord values from the Header comp and assigns it to coord state
+  // coord is to be sent to MyComponent so that the map center is changed.
   const coordHandler = (coordValues) => {
-    console.log("coordValues (coming from Header) are: ", coordValues);
-    console.log('coordValues are to be assigned coord');
     setCoord(coordValues);
   };
 
-  // can be deleted afterwards
-  /*   useEffect(() => {
-    console.log("in the use effect to change coord.");
-    setCoord([36.6, 46.2]);
-  }, []); */
-
+  // to change the default icon of the leafler.js
   const myIcon = new L.Icon({
     iconUrl: iconLoc
   })
