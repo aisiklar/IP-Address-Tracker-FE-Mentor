@@ -10,7 +10,6 @@ import L from 'leaflet';
 
 function App() {
   const [coord, setCoord] = useState([]);
-  console.log("coord to be sent to leaflet lib: ", coord);
 
   // receives the coord values from the Header comp and assigns it to coord state
   // coord is to be sent to MyComponent so that the map center is changed.

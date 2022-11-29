@@ -10,9 +10,6 @@ const InfoBox = (props) => {
   const [isp, setIsp] = useState("");
   const [coordValues, setCoordValues] = useState([]);
 
-  console.log("InfoBox (re-)render");
-  console.log("coordValues in infobox comp: ", coordValues);
-
   // assigns data to the props coming from Header comp.
   let data = props.data;
   const apiKey = process.env.REACT_APP_IP_API_KEY;
@@ -42,11 +39,9 @@ const InfoBox = (props) => {
 
     // call findInputType fnc if the user input is not empty string
     if (data !== "") {
-      console.log("user input data is not empty string");
       findInputType(data);
     }
     if (data === "") {
-      console.log("the input data is empty string. Return request ip address");
       inputTypeParam = "";
     }
 

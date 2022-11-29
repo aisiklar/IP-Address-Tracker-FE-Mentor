@@ -1,22 +1,16 @@
-import { useMap } from 'react-leaflet/hooks'
-import { useEffect } from 'react';
+import { useMap } from "react-leaflet/hooks";
+import { useEffect } from "react";
 
+// this component takes the new coords from App and changes the map center with a nice animation
 const MyComponent = (props) => {
-    console.log('props.mapCoord: ', props.mapCoord);
-    const [lat, lng] = props.mapCoord;
-    console.log('lat: ', lat);
-    console.log('lng: ', lng);
+  const [lat, lng] = props.mapCoord;
 
-    const map = useMap();
-    useEffect(()=>{
-    console.log('in the useEffect to flyTo new coord.');
+  const map = useMap();
+  useEffect(() => {
     map.flyTo([lat, lng], map.getZoom());
+  }, [lat, lng]);
 
-    }, [lat, lng]);
-
-    console.log('map center:', map.getCenter())
-   // map.setCenter(props.centerCoords);
-    return null;
-}
+  return null;
+};
 
 export default MyComponent;
