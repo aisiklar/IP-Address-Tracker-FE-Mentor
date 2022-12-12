@@ -32,7 +32,7 @@ const Header = (props) => {
 
   return (
     <div className="header-container">
-      <h2 className="app-title">IP Address Tracker</h2>
+      <h1 className="app-title">IP Address Tracker</h1>
       <div className="inputField-arrow-wrapper">
         <div className="inputField-wrapper">
           <InputField onChange={onChangeHandler}></InputField>
