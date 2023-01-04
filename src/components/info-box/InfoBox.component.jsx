@@ -36,7 +36,6 @@ const InfoBox = (props) => {
 
   // fetch data from the IP address API
   const getIpData = async () => {
-
     // call findInputType fnc if the user input is not empty string
     if (data !== "") {
       findInputType(data);
@@ -63,15 +62,15 @@ const InfoBox = (props) => {
   };
 
   // expected to run this when the props.data change, after 1st render (to prevent infinite rendering)
-  // if the 
+  // if the
   useEffect(() => {
     getIpData();
-  }, [JSON.stringify(props.data)]);
+  }, [props.data]);
 
   // expected to run this when the coordValues change, after 1st render (to prevent infinite rendering)
   useEffect(() => {
     props.coordVal(coordValues);
-  }, [JSON.stringify(coordValues)]);
+  }, [coordValues]);
 
   return (
     <div>
